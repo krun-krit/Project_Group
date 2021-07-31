@@ -6,7 +6,7 @@ const all_Product = async () =>{
         document.getElementById('allproduct').innerHTML = respone.data.map(
             (product) =>`
             <div class="card m-2" style="width: 18rem;">
-                <img src="${product.prdImageUrl}" class="card-img-top" alt="${product.prdname}">
+                <a href="index2.html"><img src="${product.prdImageUrl}" class="card-img-top" alt="${product.prdname}"></a>
                 <div class="card-body">
                     <h5 class="card-title">${product.prdname}</h5>
                     <div class="prices">
@@ -15,7 +15,7 @@ const all_Product = async () =>{
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                <button class="col-4 btn btn-outline-dark m-2" onclick="lacation.href = 'index2.html?id=${product.id}'">Add</button>
+                <button class="col-4 btn btn-outline-dark m-2" onclick="btn_Add(${product})">Add</button>
                 </div>
             </div>
             `
@@ -38,7 +38,7 @@ const slide = async () => {
                     <div class="carousel-indicators m-5">
                     <h3>3 ${slider.sliderText}</h3>
                     </div>
-                    <img src="${slider.imageUrl}" class="d-block w-100 " alt="${slider.sliderText}" height="700">
+                    <img src="${slider.imageUrl}" class="d-block w-100 " alt="${slider.sliderText}" height="750">
                 </div>
                 ${ch = ''}
             ` 
@@ -49,3 +49,7 @@ const slide = async () => {
 }
 
 slide()
+
+function btn_Add(product){
+    console.log(product)
+}
