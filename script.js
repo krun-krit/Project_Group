@@ -16,8 +16,7 @@ const all_Product = async () =>{
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                <a href="Bag.html" class="col-4 btn btn-outline-dark m-2">Add</a>
-                <!--<button class="col-4 btn btn-outline-dark m-2" onclick="location.href = 'Bag.html?id=${product.id}'">Add</button>-->
+                    <button class="col-4 btn btn-outline-dark m-2" onclick="x()">Add</button>
                 </div>
             </div>
             `
