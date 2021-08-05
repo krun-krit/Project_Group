@@ -5,7 +5,7 @@ const all_Product = async () =>{
         )
         document.getElementById('allproduct').innerHTML = respone.data.map(
             (product) =>`
-            <div class="card m-2" style="width: 15rem;">
+            <div class="card m-1" style="width: 16rem;">
                 <img src="${product.prdImageUrl}" class="card-img-top" alt="${product.prdname}" 
                     onclick="location.href = 'index2.html?id=${product.id}'" style="cursor: pointer;">
                 <div class="card-body">
