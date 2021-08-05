@@ -1,16 +1,20 @@
+.navbar{
+  background-color: #2F4F4F;
+}
+
 .home_page{
     display: inline-block;
-    border: 2px solid #ffcc00 ;
+    border: 2px solid #FFD700;
     border-radius: 20px;
     padding: 10px 20px;
-    color: #ffcc00;
+    color: #FFD700;
     text-decoration: none;
     transition: 0.3s;
   }
  
 .home_page:hover{
-    background: #fff;
-    color: #ffcc00;
+    background:#2F4F4F;
+    color: #FFD700;
 }  
 
   .message {
@@ -34,11 +38,43 @@
   .row .content{
     display: block;
   }
+
+  .backToIndex{
+  display: inline-block;
+  border: 2px solid #2F4F4F;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #2F4F4F;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;;
+  }
+
+  .backToIndex:hover{
+    background: #2F4F4F;
+    color: #FFD700;
+  }
+
+  .btn{
+    display: inline-block;
+  border: 2px solid #2F4F4F;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: #2F4F4F;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;;
+  }
+
+  .btn:hover {
+    background: #2F4F4F;
+    color: #FFD700;
+  }
   
   .footer-basic {
     padding: 40px 0;
-    background-color: #ffffff;
-    color: #4b4c4d;
+    background-color: #fff;
+    color: #000;
   }
   
   .footer-basic ul {
