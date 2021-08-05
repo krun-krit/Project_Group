@@ -73,6 +73,22 @@
   color: #FFD700;
 }
 
+.b2 {
+  display: inline-block;
+  border: 2px solid #8B0000;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: red;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.b2:hover {
+  background: #8B0000;
+  color: red;
+}
+
 .footer-basic {
   padding: 40px 0;
   background-color: #fff;
@@ -118,6 +134,7 @@
   color: #aaa;
   margin-bottom: 0;
 }
+
 .index2 {
   font-family: 'Segoe UI';
 }

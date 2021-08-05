@@ -5,7 +5,7 @@ const all_Product = async () =>{
         )
         document.getElementById('allproduct').innerHTML = respone.data.map(
             (product) =>`
-            <div class="card m-2" style="width: 18rem;">
+            <div class="card m-2" style="width: 15rem;">
                 <img src="${product.prdImageUrl}" class="card-img-top" alt="${product.prdname}" 
                     onclick="location.href = 'index2.html?id=${product.id}'" style="cursor: pointer;">
                 <div class="card-body">
@@ -85,7 +85,8 @@ const product_show = async () =>{
                             })}
                         </select>
                         <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-dark my-2" href ="Bas.html">Add To Bag</button>
+                            <a type="button" class="btn my-2" href ="Bag.html">Add To Bag</a>
+                            <a type="button" class="btn b2 my-2" href ="index.html">Back</a>
                         </div>
                         <div style="margin-top: 4rem;">
                             <label style="font-size: 1.75rem; margin-bottom: 1rem;">Product Details</label>
@@ -109,7 +110,7 @@ const product_show = async () =>{
                         <li class="list-inline-item"><a href="#">Terms</a></li>
                         <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
                     </ul>
-                    <p class="copyright">Company Name © 2018</p>
+                    <p class="copyright">Company Name © 2021</p>
                 </footer>
             </div>
         `   }
