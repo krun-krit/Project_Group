@@ -16,7 +16,7 @@ const all_Product = async () =>{
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                <button class="col-4 btn btn-outline-dark m-2" onclick="location.href = 'basket.html?id=${product.id}'">Add</button>
+                    <button class="col-4 btn btn-outline-dark m-2" onclick="x()">Add</button>
                 </div>
             </div>
             `
@@ -85,7 +85,7 @@ const product_show = async () =>{
                             })}
                         </select>
                         <div class="d-grid gap-2">
-                            <button type="button" class="btn btn-dark my-2" onclick="location.href = 'basket.html?id=${product.id}'">Add To Bag</button>
+                            <button type="button" class="btn btn-dark my-2" href ="Bas.html">Add To Bag</button>
                         </div>
                         <div style="margin-top: 4rem;">
                             <label style="font-size: 1.75rem; margin-bottom: 1rem;">Product Details</label>
