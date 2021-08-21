@@ -16,7 +16,7 @@ const all_Product = async () =>{
                     </div>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="col-4 btn btn-outline-dark m-2" onclick="x()">Add</button>
+                    <button class="col-4 btn btn-outline-dark m-2" onclick="location.href = 'index2.html?id=${product.id}'">Add</button>
                 </div>
             </div>
             `
@@ -52,7 +52,6 @@ const slide = async () => {
 slide()
 
 /////////////////////////////////////////////////Index2//////////////////////////////////////////////////
-
 let prdid = new URLSearchParams(window.location.search).get("id");
 console.log('id',prdid)
 
@@ -85,7 +84,7 @@ const product_show = async () =>{
                             })}
                         </select>
                         <div class="d-grid gap-2">
-                            <a type="button" class="btn my-2" href ="Bag.html">Add To Bag</a>
+                            <a class="btn my-2" href="Bag.html" data-id="${prdid}" onclick="add(event)" >Add To Bag</a>
                             <a type="button" class="btn b2 my-2" href ="index.html">Back</a>
                         </div>
                         <div style="margin-top: 4rem;">
@@ -121,3 +120,74 @@ const product_show = async () =>{
 }
 
 product_show()
+
+////////////////////////////////////////////////Add Storage///////////////////////////////////////////////
+async function add(e) {
+    e.preventDefault();
+    let ID = e.target.attributes['data-id'].value
+    try {
+        const respone = await axios.get(`https://6102d7aa79ed680017482359.mockapi.io/productdetail?id=${ID}`)
+        const data = respone.data
+        data.map((value,index,arr)=>{
+            if(index ===0){
+                if(localStorage.getItem('dataJson')){
+                    const dataJson = JSON.parse(localStorage.getItem('dataJson'))
+                    dataJson.push(value);
+                    localStorage.setItem('dataJson',JSON.stringify(dataJson))
+                }else{
+                    localStorage.setItem('dataJson',JSON.stringify(arr))
+                }
+            }
+        })
+    } catch (error) {
+        console.log('e',error)
+    } 
+ }
+
+ ////////////////////////////////////////Bag///////////////////////////////////////////////////
+
+function productIdbag (){
+    const dataJson = JSON.parse(localStorage.getItem('dataJson'))
+    document.getElementById('productIdbag').innerHTML = dataJson.map((product)=>{
+        return`<div class="card mb-3" style="max-width: 1080px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${product.prdImageUrl}" class="img-fluid rounded-start" alt="..." width="100%" height="100%">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: #B02B2B;">${product.prdPrice} THB</h4>
+                                <p class="card-text" style="color: black;">${product.prdname}</p>
+                                <div class="col-12 d-flex ">
+                                    <div class="col-6">
+                                        <label style="font-size: 1em; color: #646464;">Size</label>
+                                        <select class="form-select my-2" aria-label="Default select example" id="prdSize">
+                                            <option selected>Please Select</option>
+                                            ${product.prdSize.map((value) =>{
+                                                return `<option value="${value}">${value}</option>`
+                                            })}
+                                        </select>
+                                    </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-4 ">
+                                        <label style="font-size: 1em; color: #646464;">Quantity</label>
+                                        <select class="form-select my-2" aria-label="Default select example" id="prdSize">
+                                            ${product.prdSize.map((value) =>{
+                                                return `<option value="${value}">${value}</option>`
+                                            })}
+                                        </select>
+                                    </div>
+                                </div>
+                                <p class="card-text d-flex justify-content-end" style="margin-top: 19%;">
+                                    <a class="b2" style="color: #B02B2B; font-size: 1rem; color: red; cursor: pointer;" data-id="${prdid}" onclick="deleteBag(event)">
+                                        Remove this item
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+    }).join('');
+}
+
+productIdbag();
