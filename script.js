@@ -134,10 +134,13 @@ async function add(e) {
                     const dataJson = JSON.parse(localStorage.getItem('dataJson'))
                     dataJson.push(value);
                     localStorage.setItem('dataJson',JSON.stringify(dataJson))
+                    console.log(value)
+                    alert('This item add in your bucket.');
                 }else{
                     localStorage.setItem('dataJson',JSON.stringify(arr))
                 }
             }
+
         })
     } catch (error) {
         console.log('e',error)
@@ -148,7 +151,7 @@ async function add(e) {
 
 function productIdbag (){
     const dataJson = JSON.parse(localStorage.getItem('dataJson'))
-    document.getElementById('productIdbag').innerHTML = dataJson.map((product)=>{
+    document.getElementById('productIdbag').innerHTML = dataJson.map((product,index)=>{
         return`<div class="card mb-3" style="max-width: 1080px;">
                     <div class="row g-0">
                         <div class="col-md-4">
@@ -171,15 +174,17 @@ function productIdbag (){
                                     <div class="col-1"></div>
                                     <div class="col-4 ">
                                         <label style="font-size: 1em; color: #646464;">Quantity</label>
-                                        <select class="form-select my-2" aria-label="Default select example" id="prdSize">
-                                            ${product.prdSize.map((value) =>{
-                                                return `<option value="${value}">${value}</option>`
-                                            })}
+                                        <select class="form-select my-2" aria-label="Default select example" id="qty${index}" onchange="sum_product()">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
                                         </select>
                                     </div>
                                 </div>
                                 <p class="card-text d-flex justify-content-end" style="margin-top: 19%;">
-                                    <a class="b2" style="color: #B02B2B; font-size: 1rem; color: red; cursor: pointer;" data-id="${prdid}" onclick="deleteBag(event)">
+                                    <a class="b2 delete-item" style="color: #B02B2B; font-size: 1rem; color: red; cursor: pointer;" data-id="${index}">
                                         Remove this item
                                     </a>
                                 </p>
@@ -190,4 +195,35 @@ function productIdbag (){
     }).join('');
 }
 
+
+function sum_product(){
+    const dataJson = JSON.parse(localStorage.getItem('dataJson'))
+    let sum = 0;
+    dataJson.forEach((item,index)=> {
+        let value = document.getElementById('qty'+ index).value
+        sum += item.prdPrice * value
+        console.log('GG',sum);
+    });
+    document.getElementById('Subtotal').innerText = sum;
+    document.getElementById('total').innerText = sum; 
+}
+
 productIdbag();
+
+const item = document.querySelectorAll('.delete-item');
+item.forEach((element) => {
+    element.addEventListener("click", (e) =>{ 
+        const id = e.target.getAttribute("data-id");
+        const dataJson = JSON.parse(localStorage.getItem('dataJson'));
+        console.log(id);
+        const newData = dataJson.filter((item, index) => {
+            if (index !== Number.parseInt(id)) {
+                return item;
+            }
+            alert('This item is removing.');
+        });
+
+        localStorage.setItem('dataJson', JSON.stringify(newData));
+        location.reload();
+    });
+})
