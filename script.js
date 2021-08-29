@@ -1,3 +1,6 @@
+let sumBag = 0
+
+
 const all_Product = async () =>{
     try {
         const respone = await axios.get(
@@ -39,7 +42,7 @@ const slide = async () => {
                     <div class="carousel-indicators m-5">
                     <h3>3 ${slider.sliderText}</h3>
                     </div>
-                    <img src="${slider.imageUrl}" class="d-block w-100 " alt="${slider.sliderText}" height="750">
+                    <img src="${slider.imageUrl}" class="show_item d-block w-100 " alt="${slider.sliderText}">
                 </div>
                 ${ch = ''}
             ` 
@@ -70,7 +73,7 @@ const product_show = async () =>{
             (product,index) =>
             {if (index === 0) {
             return`    
-            <img class="col-lg-6 col-sm-12" src="${product.prdImageUrl}" alt="" height="80%" width="100%">
+            <img class="col-lg-6 col-sm-12" src="${product.prdImageUrl}">
             <div class="col-lg-6 col-sm-12 d-flex justify-content-center ">
                 <div>
                     <label id="productName" style="font-size: 2rem;">${product.prdname}</label>
@@ -199,17 +202,17 @@ function productIdbag (){
     }).join('');
 }
 
-
 function sum_product(){
     const dataJson = JSON.parse(localStorage.getItem('dataJson'))
     let sum = 0;
     dataJson.forEach((item,index)=> {
         let value = document.getElementById('qty'+ index).value
         sum += item.prdPrice * value
-        console.log('GG',sum);
+        sumBag = sum
     });
     document.getElementById('Subtotal').innerText = sum;
-    document.getElementById('total').innerText = sum; 
+    document.getElementById('total').innerText = sum;
+    document.getElementById('total_res').innerText = 'Total : '+ sum + ' THB'; 
 }
 
 productIdbag();
@@ -231,4 +234,15 @@ item.forEach((element) => {
         location.reload();
     });
 })
+
+function Checkout_Bag(){
+    localStorage.setItem('Total', sumBag);
+}
+
+function pricePay(){
+    const total = JSON.parse(localStorage.getItem('Total'));
+    console.log('total_2', total);
+    document.getElementById('subtotal_2').innerText = `${total}`
+    document.getElementById('total_2').innerText = `${total}`
+}
 
