@@ -62,6 +62,22 @@ svg{
   color: #FFD700;
 }
 
+.paySuccess{
+  display: inline-block;
+  border: 2px solid #2F4F4F;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: #2F4F4F;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.paySuccess:hover {
+  background: #2F4F4F;
+  color: #FFD700;
+}
+
 .btn {
   display: inline-block;
   border: 2px solid #2F4F4F;

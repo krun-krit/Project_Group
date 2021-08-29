@@ -12,16 +12,15 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title>Payment Page</title>
+
 </head>
 <body>
-    <nav class="navbar navbar-light bg-dark ">
-        <a class="navbar-brand">
-            <img src="Picture/Logo.png" alt="Logo" width="100" height="100%" class="bg-dark">
-        </a>
-        <h4 class="justify-content-start text-white" >Checkout</h4>
+    <nav class="navbar navbar-light bg-dark justify-content-center">
+        <img src="Picture/Logo.png" alt="Logo" width="100" height="100%" class="bg-dark"><h4 class="text-white" >Checkout</h4>
     </nav>
-    <div class="col-12 row">
+    <div class="row col-12 ">
         <div class="d-flex justify-content-center my-5 col-lg-8 col-sm-12">
             <div class="col-lg-10 col-sm-10">
                 <div>
@@ -55,10 +54,11 @@
                                 Add Payment Details
                             </label>  
                         </div>
-                        <div id="detail row g-3">
-                            <div class="col-md-4">
+                        <form class="row g-3">
+                            <div class="col-md-5" style="display: inline;">
                                 <label for="inputCard" class="form-label">Card Number</label>
-                                <input type="text" class="form-control" id="inputCard" placeholder="2345 4567 3456 0404">   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <input type="text" class="texImg form-control" id="inputCard" placeholder="2345 4567 3456 0404">  
+                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="40" height="40" fill="url(#pattern0)"/>
                                     <defs>
                                     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -66,21 +66,35 @@
                                     </pattern>
                                     <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABGUUKwAAAH/0lEQVR4Ae1aa2xURRSeuXe33ZYIpWJ9Ymy3Baz4pE0FKxYK+EASTSyJiCLGECgVJcHE8AeJMf6QBA0PFSNUSUwUBRJ88SgtCPEVnyAPu7UgGEUtLUKfu/eO39nuTO+dvS0bf+7eSbdz5jtnXt+cc+bebbkQgmVyMTJ587R3nwDfAzKcAT8EMtwB/CToh4AfAhnOgB8CGe4A/i3gh4AfAhnOgB8CGe4A/i3gh0Cmh0Cg48vHVzEm5oGIUYOQ0cwZ29JnGmsuK9/05yA2rGTt3pcEF89p+t9a/jlQKFassIvXNfwD3aUuvWGURRZN+daFoVGy5tPhgmcvYFxMwNxF+N6aPjmQf4f6NBficxGwP4gsnHFY70vtwvqmkNlpvQ6xEp+BfQnW1dJ24BpaD9lRCeTdXr+MHZm9/Nz53FnCFvMZZ/cAN+Pa/l8lmHx5lmXfguZMB65EvnKlER5VOVcBShBv0mTY0GXMyHJvHqwP64weU6YQbl61a9iF3MAybmQ9DfVI0mHueMHmqYyhj+B8qrBM2lgdgXpJbH6ejmNvI8KXTywFrojrzwGl7/eNqKj/MG/i2/cb3LgeBgf1zljIfe1fP+5JQOGoymrYX6P1icWC1ltxLBCgSfVy6sdlMzolWLbh2+CFkLEVp/s8sPjmpc6rNjg74oUXr28qBv6Yl44wEQuUO3VJSXB4xabmvNuLJm8+c8MhbLrPacxte4azLWW4SzLbjO04seDuP8jGtkwiVS9HncC5aMcmzrnn+E47JdvCkwAhrEWwSTiMslYCiBuagH7LFfarpyc0PvTzA8G/o7l/yd5YoKsz4eM2HrwERD0obWQNW4rBeOFcJBPAmXL/cWt3X4UxHpH2ssYuPoK7z7FMs5Bxs8S22WRgy6H/CTkgiYDRq7+gPDFf9veqBROuPQS8jAjDgnaf7Bm+5OEjswreLd1xtiDYlY+/ot3CmqYEWFVjTPaLdnfXcMZzZTtR/xqpnbpbYljU9RhPL8oDYtyYrCvRPtPTlzv71NKJ3Q5dBPLn+LzkwJQYCnbNwTzO8OmBkrw8SxkxdtP4lVuyDq+oiXt3UghIwxxuNkGOdsSy2aNHZ+a3x0LtaOd0ZF03Xtr013yeuw3yOJLfQP4iMpNygCG4IoAI0sdAuyAU7KzwwAeFhMEWa8qdiIZvNCyr+9K8myQ2KAGHa6suIJK+JMO2aA6be3RmXq9ttnHDUi40bu2uQiz+TjlYoo5yw94oMbrSIF8t27IWdq8iwBbiJ4k7ag73/wTX54sUZg7cUyxZ1zARTN+qKbfB5fdrGDgZCOVBCaBOcPk9svOZvmH8hROTzG4rcIfEokaAsi04cBa+DfezyhsWyx7n1Cbktuan7v1b4jEztBey1zNGDvDlsa6e40XrGqZL+0Fq/fRjvX2xHZyzJAKwaXWIQxIApYpjmvSz9sK8Q10FYbkAXFlEgLsI9oYTMMxk94denT7ZnlxU2Q4a50CkmE0unF2JtewsXr/nZYpf3aD49V0FCLMaN873nVp699lAKERXuuXUCWGkRkCk4OzX6HjO2Xn16bIxm3etGla0poFcv8ipg/xLS93URjfmcQM44l/aRmqrG5Hpb0SbvMGrcCSXZT2j8g9eveEjV9LllvkkOriIwc2zlQY59sQd51H9QLIqXJTSQxe1h/QAUVNj4WRcG/qla2TBC80TxnPT4+7nbANOAj8DBWGUlOCwOHUFDlgyFqmtikQWV1cjRucDb3PqHHJZTl/Oc7LNt2wxMeFC2U7UwrTt7RITgu+XcqI2zmebt5E8JAFkgAB3hQFhNrcrudBdjvUGBasnvbPg2JIIwIJcIeC0JxlXaH2QsbE48Td1XbzN2QMSD5/JnwV5tGwnao6r9XckUEEfEL5U0zPT6M8DFyXAjtlJBOCMn8WAlN1VAVEfHF1c7To1eikBhUXKKCFYAWNIAsiMxorUTV2AuT7W+6N9ucKSrz6lGkqA18TzwEUJaFkyvRkDndQGG1hAQmHZ7uRHMO+2xqDS5+g6sbAqPh69RBW91jg2MYR35XhiVAaCxe/2eF/B6D3k/5Q4AYM+CWojkhdQohmsHPn1qWp6QnMVw0L8wzVchbPjMk8UjZwUxvvFsfC6PV/hGf09wYyvAnbsj86oOJedHbgZ+WM6ui9x9e9v7KfKsO1aVPoM/RYX/x0evXpnfkoEII53C8aHIsB19cm5Kf7RTzbjNZ5ulPsbJi+ljIlH6QpstoLyZwzZNZvyORTunmqYU5ZhvhPP4jnmPIUmBFzNU5rrpjXpeHhtw9N4JnjFiYeyg2W6ezr1SjaCAbqaaK1epduKmu94KYTBS3VcMFsRgC0m6XV7rf0v/q1vZmtt1Z+dueZc6EZo+pORumn7NCzeBMHf6biwWXlKBBxfUEXf5nyvD5Bov9f6TFWHp87mSTcA3hLVFWhzz4ckr6HIkbYb3L6rpW7aobiBSHruB8w345Q8DyrXNGn9bh0X5SmFQGJFn6G+ISGrihvC2/1xP4d5/rUw7FXGJFgDX2QEQ6HaaE/3NoTFvdggJcMrsMQryQorbUUItAJvtmxrU+viGYq44vV7J8GGEqxzbHwVYHl6IuwYvdvgSqSETv1kKUfIuEmRmkypUwqBdCbDJyCdTzeVvfkekApL6Wzje0A6n24qe/M9IBWW0tnG94B0Pt1U9uZ7QCospbON7wHpfLqp7M33gFRYSmcb3wPS+XRT2ZvvAamwlM42/wFpZmRdPtLuXQAAAABJRU5ErkJggg=="/>
                                     </defs>
-                                </svg>
-                            </div>    
-                              <div class="col-md-1">
-                                <label for="inputExpiryDate" class="form-label">Expiry Date</label>
-                                <input type="text" class="form-control" id="inputExpiryDate" placeholder="MM/YY">
+                                    </svg>                                    
+                            </div>        
+                              <div class="col-md-2">
+                                <label for="inputExp" class="form-label">Expiry Date</label>
+                                <input type="text" id="inputExp" class="form-control" placeholder="MM/YY">
                               </div>
-                              <div class="col-md-1">
+                              <div class="col-md-2">
                                 <label for="inputCVV" class="form-label">CVV</label><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M5.906 0C2.6445 0 0 2.6445 0 5.906C0 9.1675 2.6445 11.8125 5.906 11.8125C9.1675 11.8125 11.8125 9.1675 11.8125 5.906C11.8125 2.6445 9.1675 0 5.906 0ZM7.1355 9.1535C6.8315 9.2735 6.5895 9.3645 6.408 9.4275C6.227 9.4905 6.0165 9.522 5.777 9.522C5.409 9.522 5.1225 9.432 4.9185 9.2525C4.7145 9.073 4.613 8.8455 4.613 8.569C4.613 8.4615 4.6205 8.3515 4.6355 8.2395C4.651 8.1275 4.6755 8.0015 4.709 7.86L5.0895 6.516C5.123 6.387 5.152 6.2645 5.175 6.1505C5.198 6.0355 5.209 5.93 5.209 5.834C5.209 5.663 5.1735 5.543 5.103 5.4755C5.0315 5.408 4.897 5.375 4.6965 5.375C4.5985 5.375 4.4975 5.3895 4.394 5.42C4.2915 5.4515 4.2025 5.48 4.1295 5.508L4.23 5.094C4.479 4.9925 4.7175 4.9055 4.945 4.8335C5.1725 4.7605 5.3875 4.7245 5.59 4.7245C5.9555 4.7245 6.2375 4.8135 6.436 4.9895C6.6335 5.166 6.733 5.3955 6.733 5.6775C6.733 5.736 6.726 5.839 6.7125 5.986C6.699 6.1335 6.6735 6.268 6.6365 6.3915L6.258 7.7315C6.227 7.839 6.1995 7.962 6.1745 8.0995C6.15 8.237 6.138 8.342 6.138 8.4125C6.138 8.5905 6.1775 8.712 6.2575 8.7765C6.3365 8.841 6.475 8.8735 6.671 8.8735C6.7635 8.8735 6.867 8.857 6.984 8.825C7.1 8.793 7.184 8.7645 7.237 8.74L7.1355 9.1535ZM6.431 3.9605C6.6795 3.9605 6.892 3.8785 7.0685 3.7145C7.245 3.5505 7.3335 3.3515 7.3335 3.118C7.3335 2.8855 7.245 2.6855 7.0685 2.52C6.8925 2.354 6.6795 2.2715 6.431 2.2715C6.183 2.2715 5.969 2.354 5.791 2.52C5.6145 2.6855 5.5245 2.8855 5.5245 3.118C5.5245 3.351 5.614 3.5505 5.791 3.7145C5.969 3.8785 6.183 3.9605 6.431 3.9605Z" fill="#030104"/>
-                                    </svg>
-                                    
+                                    </svg>                                    
                                 <input type="text" class="form-control" id="inputCVV" placeholder="XXX">
-                              </div>   
-                              
-                        </div>
+                              </div>
+                              <div class="col-md-4">
+                                <label for="inputCode" class="form-label">Promo Code (If any)</label>
+                                <input type="text" class="form-control" id="inputCode"><svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="50" height="50" fill="black"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5892 15.0842C23.6538 13.8608 25.5779 13.8608 26.6416 15.0842L27.0949 15.5998C27.3117 15.8532 27.653 15.9581 27.9773 15.8882L28.6563 15.7221C30.248 15.3464 31.8049 16.4649 31.9338 18.0641L31.9898 18.7545C32.0156 19.0778 32.2262 19.3662 32.5346 19.4886L33.1797 19.7507C34.6914 20.3712 35.286 22.1714 34.431 23.5434L34.0676 24.1289C33.8925 24.4085 33.8925 24.7581 34.0676 25.0377L34.431 25.6232C35.286 26.9952 34.6914 28.7954 33.1797 29.4159L32.5346 29.678C32.2262 29.8004 32.0156 30.0887 31.9898 30.4121L31.9338 31.1024C31.8049 32.7017 30.248 33.8202 28.6563 33.4445L27.9773 33.2784C27.653 33.2085 27.3117 33.3134 27.0949 33.5668L26.6416 34.0824C25.5779 35.3058 23.6538 35.3058 22.5892 34.0824L22.136 33.5668C21.9191 33.3134 21.5788 33.2085 21.2535 33.2784L20.5745 33.4445C18.9829 33.8202 17.4268 32.7017 17.297 31.1024L17.241 30.4121C17.2153 30.0887 17.0046 29.8004 16.6963 29.678L16.052 29.4159C14.5394 28.7954 13.9449 26.9952 14.7998 25.6232L15.1633 25.0377C15.3383 24.7581 15.3383 24.4085 15.1633 24.1289L14.7998 23.5434C13.9449 22.1714 14.5394 20.3712 16.052 19.7507L16.6963 19.4886C17.0046 19.3662 17.2153 19.0778 17.241 18.7545L17.297 18.0641C17.4268 16.4649 18.9829 15.3464 20.5745 15.7221L21.2535 15.8882C21.5788 15.9581 21.9191 15.8532 22.136 15.5998L22.5892 15.0842ZM25.2908 16.2202C24.9362 15.8095 24.2946 15.8095 23.94 16.2202L23.4859 16.7358C22.8363 17.4874 21.8134 17.8107 20.8394 17.5835L20.1613 17.4262C19.6307 17.3039 19.1117 17.6709 19.0682 18.204L19.0131 18.8856C18.934 19.8731 18.3021 20.7295 17.377 21.1052L16.7327 21.3674C16.2288 21.5684 16.0306 22.1714 16.3159 22.6258L16.6794 23.2113C17.2019 24.059 17.2019 25.1076 16.6794 25.9553L16.3159 26.5408C16.0306 26.9952 16.2288 27.5982 16.7327 27.7992L17.377 28.0613C18.3021 28.4371 18.934 29.2935 19.0131 30.281L19.0682 30.9626C19.1117 31.4957 19.6307 31.8627 20.1613 31.7404L20.8394 31.5831C21.8134 31.3559 22.8363 31.6792 23.4859 32.4307L23.94 32.9463C24.2946 33.3571 24.9362 33.3571 25.2908 32.9463L25.7449 32.4307C26.3955 31.6792 27.4175 31.3559 28.3915 31.5831L29.0695 31.7404C29.6001 31.8627 30.1191 31.4957 30.1626 30.9626L30.2177 30.281C30.2968 29.2935 30.9287 28.4371 31.8538 28.0613L32.4981 27.7992C33.002 27.5982 33.2002 26.9952 32.9149 26.5408L32.5514 25.9553C32.0289 25.1076 32.0289 24.059 32.5514 23.2113L32.9149 22.6258C33.2002 22.1714 33.002 21.5684 32.4981 21.3674L31.8538 21.1052C30.9287 20.7295 30.2968 19.8731 30.2177 18.8856L30.1626 18.204C30.1191 17.6709 29.6001 17.3039 29.0695 17.4262L28.3915 17.5835C27.4175 17.8107 26.3955 17.4874 25.7449 16.7358L25.2908 16.2202ZM23.4663 21.3412C23.8138 21.682 23.8138 22.2413 23.4663 22.5821L22.5776 23.456C22.2302 23.7968 21.6685 23.7968 21.321 23.456C20.9736 23.1152 20.9736 22.5559 21.321 22.2151L22.2097 21.3412C22.5572 21.0004 23.1189 21.0004 23.4663 21.3412ZM27.9098 21.3412C28.2573 21.682 28.2573 22.2413 27.9098 22.5821L22.5776 27.8254C22.2302 28.1662 21.6685 28.1662 21.321 27.8254C20.9736 27.4846 20.9736 26.9253 21.321 26.5845L26.6532 21.3412C27.0007 21.0004 27.5623 21.0004 27.9098 21.3412ZM27.9098 25.7106C28.2573 26.0514 28.2573 26.6107 27.9098 26.9515L27.0211 27.8254C26.6736 28.1662 26.112 28.1662 25.7645 27.8254C25.417 27.4846 25.417 26.9253 25.7645 26.5845L26.6532 25.7106C27.0007 25.3698 27.5623 25.3698 27.9098 25.7106Z" fill="white"/>
+                                    </svg>                                    
+                              </div>
+                            </form>
+                            <div class="col-12">
+                              <div class="form-check">
+                                <h3>Billing Address</h3>  
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                  Biling adress same as delivery adress
+                                </label>
+                              </div>
+                            </div>
                     </div>
             </div>
         </div>
@@ -96,26 +110,23 @@
                         <div class="d-flex justify-content-between my-2">
                             <label class="card-text" style="color: black;margin-bottom: 3rem; font-weight: bolder;" id="total_2">Total to pay</label>
                         </div>
-                        <div class="d-grid gap-2">
-                            <a href="payment.html" class="btn">Checkout</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-    <div class="col-12 d-flex justify-content-center">
-            <div class="col-10">
-                <a href ="Bag.html" style="cursor: pointer;" class="backToIndex">back</a>
+        <div class="d-flex justify-content-center">
+            <div  style="text-align: center; margin: 2%;">
+                <a href ="Bag.html" style="cursor: pointer;"  class="backToIndex">back</a>
+            </div>
+            <div style="text-align: center; margin: 2%;">
+                <a href ="index.html" style="cursor: pointer;" class="paySuccess" onclick="alert('Thank you')">Confirm Payment</a>
             </div>
         </div>
-    </div>
-    
+
+
+
     <div class="footer-basic col-12">
         <footer>
             <ul class="list-inline">
