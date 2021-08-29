@@ -10,6 +10,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="Style.css">
     <title>Payment Page</title>
 </head>
@@ -48,18 +49,16 @@
                         <path d="M20 19.375C19.1384 19.375 18.4375 18.6741 18.4375 17.8125C18.4375 16.9509 19.1384 16.25 20 16.25C20.8616 16.25 21.5625 16.9509 21.5625 17.8125C21.5625 18.1577 21.8423 18.4375 22.1875 18.4375C22.5327 18.4375 22.8125 18.1577 22.8125 17.8125C22.8125 16.4765 21.8759 15.3559 20.625 15.0709V14.375C20.625 14.0298 20.3452 13.75 20 13.75C19.6548 13.75 19.375 14.0298 19.375 14.375V15.0709C18.1241 15.3559 17.1875 16.4765 17.1875 17.8125C17.1875 19.3633 18.4492 20.625 20 20.625C20.8616 20.625 21.5625 21.3259 21.5625 22.1875C21.5625 23.0491 20.8616 23.75 20 23.75C19.1384 23.75 18.4375 23.0491 18.4375 22.1875C18.4375 21.8423 18.1577 21.5625 17.8125 21.5625C17.4673 21.5625 17.1875 21.8423 17.1875 22.1875C17.1875 23.5235 18.1241 24.6441 19.375 24.9291V25.625C19.375 25.9702 19.6548 26.25 20 26.25C20.3452 26.25 20.625 25.9702 20.625 25.625V24.9291C21.8759 24.6441 22.8125 23.5235 22.8125 22.1875C22.8125 20.6367 21.5508 19.375 20 19.375Z" fill="#646464"/>
                     </svg>
                 </div>
-                <div class="card mb-4" style="max-width: 1080px;">
                     <div class="row g-0">
                         <div id="head_label">
                             <label style="font-size:2rem; font-family: 'Franklin Gothic Medium'; margin-bottom: 2rem;">
                                 Add Payment Details
                             </label>  
                         </div>
-                        <div id="detail">
-                            <div id="card_number">
-                                <p>Card Number</p>
-                                <input type="text" id="cerdit_card" placeholder="2345 4567 3456 0404">
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <div id="detail row g-3">
+                            <div class="col-md-4">
+                                <label for="inputCard" class="form-label">Card Number</label>
+                                <input type="text" class="form-control" id="inputCard" placeholder="2345 4567 3456 0404">   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="40" height="40" fill="url(#pattern0)"/>
                                     <defs>
                                     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -67,13 +66,22 @@
                                     </pattern>
                                     <image id="image0" width="64" height="64" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAQKADAAQAAAABAAAAQAAAAABGUUKwAAAH/0lEQVR4Ae1aa2xURRSeuXe33ZYIpWJ9Ymy3Baz4pE0FKxYK+EASTSyJiCLGECgVJcHE8AeJMf6QBA0PFSNUSUwUBRJ88SgtCPEVnyAPu7UgGEUtLUKfu/eO39nuTO+dvS0bf+7eSbdz5jtnXt+cc+bebbkQgmVyMTJ587R3nwDfAzKcAT8EMtwB/CToh4AfAhnOgB8CGe4A/i3gh4AfAhnOgB8CGe4A/i3gh0Cmh0Cg48vHVzEm5oGIUYOQ0cwZ29JnGmsuK9/05yA2rGTt3pcEF89p+t9a/jlQKFassIvXNfwD3aUuvWGURRZN+daFoVGy5tPhgmcvYFxMwNxF+N6aPjmQf4f6NBficxGwP4gsnHFY70vtwvqmkNlpvQ6xEp+BfQnW1dJ24BpaD9lRCeTdXr+MHZm9/Nz53FnCFvMZZ/cAN+Pa/l8lmHx5lmXfguZMB65EvnKlER5VOVcBShBv0mTY0GXMyHJvHqwP64weU6YQbl61a9iF3MAybmQ9DfVI0mHueMHmqYyhj+B8qrBM2lgdgXpJbH6ejmNvI8KXTywFrojrzwGl7/eNqKj/MG/i2/cb3LgeBgf1zljIfe1fP+5JQOGoymrYX6P1icWC1ltxLBCgSfVy6sdlMzolWLbh2+CFkLEVp/s8sPjmpc6rNjg74oUXr28qBv6Yl44wEQuUO3VJSXB4xabmvNuLJm8+c8MhbLrPacxte4azLWW4SzLbjO04seDuP8jGtkwiVS9HncC5aMcmzrnn+E47JdvCkwAhrEWwSTiMslYCiBuagH7LFfarpyc0PvTzA8G/o7l/yd5YoKsz4eM2HrwERD0obWQNW4rBeOFcJBPAmXL/cWt3X4UxHpH2ssYuPoK7z7FMs5Bxs8S22WRgy6H/CTkgiYDRq7+gPDFf9veqBROuPQS8jAjDgnaf7Bm+5OEjswreLd1xtiDYlY+/ot3CmqYEWFVjTPaLdnfXcMZzZTtR/xqpnbpbYljU9RhPL8oDYtyYrCvRPtPTlzv71NKJ3Q5dBPLn+LzkwJQYCnbNwTzO8OmBkrw8SxkxdtP4lVuyDq+oiXt3UghIwxxuNkGOdsSy2aNHZ+a3x0LtaOd0ZF03Xtr013yeuw3yOJLfQP4iMpNygCG4IoAI0sdAuyAU7KzwwAeFhMEWa8qdiIZvNCyr+9K8myQ2KAGHa6suIJK+JMO2aA6be3RmXq9ttnHDUi40bu2uQiz+TjlYoo5yw94oMbrSIF8t27IWdq8iwBbiJ4k7ag73/wTX54sUZg7cUyxZ1zARTN+qKbfB5fdrGDgZCOVBCaBOcPk9svOZvmH8hROTzG4rcIfEokaAsi04cBa+DfezyhsWyx7n1Cbktuan7v1b4jEztBey1zNGDvDlsa6e40XrGqZL+0Fq/fRjvX2xHZyzJAKwaXWIQxIApYpjmvSz9sK8Q10FYbkAXFlEgLsI9oYTMMxk94denT7ZnlxU2Q4a50CkmE0unF2JtewsXr/nZYpf3aD49V0FCLMaN873nVp699lAKERXuuXUCWGkRkCk4OzX6HjO2Xn16bIxm3etGla0poFcv8ipg/xLS93URjfmcQM44l/aRmqrG5Hpb0SbvMGrcCSXZT2j8g9eveEjV9LllvkkOriIwc2zlQY59sQd51H9QLIqXJTSQxe1h/QAUVNj4WRcG/qla2TBC80TxnPT4+7nbANOAj8DBWGUlOCwOHUFDlgyFqmtikQWV1cjRucDb3PqHHJZTl/Oc7LNt2wxMeFC2U7UwrTt7RITgu+XcqI2zmebt5E8JAFkgAB3hQFhNrcrudBdjvUGBasnvbPg2JIIwIJcIeC0JxlXaH2QsbE48Td1XbzN2QMSD5/JnwV5tGwnao6r9XckUEEfEL5U0zPT6M8DFyXAjtlJBOCMn8WAlN1VAVEfHF1c7To1eikBhUXKKCFYAWNIAsiMxorUTV2AuT7W+6N9ucKSrz6lGkqA18TzwEUJaFkyvRkDndQGG1hAQmHZ7uRHMO+2xqDS5+g6sbAqPh69RBW91jg2MYR35XhiVAaCxe/2eF/B6D3k/5Q4AYM+CWojkhdQohmsHPn1qWp6QnMVw0L8wzVchbPjMk8UjZwUxvvFsfC6PV/hGf09wYyvAnbsj86oOJedHbgZ+WM6ui9x9e9v7KfKsO1aVPoM/RYX/x0evXpnfkoEII53C8aHIsB19cm5Kf7RTzbjNZ5ulPsbJi+ljIlH6QpstoLyZwzZNZvyORTunmqYU5ZhvhPP4jnmPIUmBFzNU5rrpjXpeHhtw9N4JnjFiYeyg2W6ezr1SjaCAbqaaK1epduKmu94KYTBS3VcMFsRgC0m6XV7rf0v/q1vZmtt1Z+dueZc6EZo+pORumn7NCzeBMHf6biwWXlKBBxfUEXf5nyvD5Bov9f6TFWHp87mSTcA3hLVFWhzz4ckr6HIkbYb3L6rpW7aobiBSHruB8w345Q8DyrXNGn9bh0X5SmFQGJFn6G+ISGrihvC2/1xP4d5/rUw7FXGJFgDX2QEQ6HaaE/3NoTFvdggJcMrsMQryQorbUUItAJvtmxrU+viGYq44vV7J8GGEqxzbHwVYHl6IuwYvdvgSqSETv1kKUfIuEmRmkypUwqBdCbDJyCdTzeVvfkekApL6Wzje0A6n24qe/M9IBWW0tnG94B0Pt1U9uZ7QCospbON7wHpfLqp7M33gFRYSmcb3wPS+XRT2ZvvAamwlM42/wFpZmRdPtLuXQAAAABJRU5ErkJggg=="/>
                                     </defs>
+                                </svg>
+                            </div>    
+                              <div class="col-md-1">
+                                <label for="inputExpiryDate" class="form-label">Expiry Date</label>
+                                <input type="text" class="form-control" id="inputExpiryDate" placeholder="MM/YY">
+                              </div>
+                              <div class="col-md-1">
+                                <label for="inputCVV" class="form-label">CVV</label><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.906 0C2.6445 0 0 2.6445 0 5.906C0 9.1675 2.6445 11.8125 5.906 11.8125C9.1675 11.8125 11.8125 9.1675 11.8125 5.906C11.8125 2.6445 9.1675 0 5.906 0ZM7.1355 9.1535C6.8315 9.2735 6.5895 9.3645 6.408 9.4275C6.227 9.4905 6.0165 9.522 5.777 9.522C5.409 9.522 5.1225 9.432 4.9185 9.2525C4.7145 9.073 4.613 8.8455 4.613 8.569C4.613 8.4615 4.6205 8.3515 4.6355 8.2395C4.651 8.1275 4.6755 8.0015 4.709 7.86L5.0895 6.516C5.123 6.387 5.152 6.2645 5.175 6.1505C5.198 6.0355 5.209 5.93 5.209 5.834C5.209 5.663 5.1735 5.543 5.103 5.4755C5.0315 5.408 4.897 5.375 4.6965 5.375C4.5985 5.375 4.4975 5.3895 4.394 5.42C4.2915 5.4515 4.2025 5.48 4.1295 5.508L4.23 5.094C4.479 4.9925 4.7175 4.9055 4.945 4.8335C5.1725 4.7605 5.3875 4.7245 5.59 4.7245C5.9555 4.7245 6.2375 4.8135 6.436 4.9895C6.6335 5.166 6.733 5.3955 6.733 5.6775C6.733 5.736 6.726 5.839 6.7125 5.986C6.699 6.1335 6.6735 6.268 6.6365 6.3915L6.258 7.7315C6.227 7.839 6.1995 7.962 6.1745 8.0995C6.15 8.237 6.138 8.342 6.138 8.4125C6.138 8.5905 6.1775 8.712 6.2575 8.7765C6.3365 8.841 6.475 8.8735 6.671 8.8735C6.7635 8.8735 6.867 8.857 6.984 8.825C7.1 8.793 7.184 8.7645 7.237 8.74L7.1355 9.1535ZM6.431 3.9605C6.6795 3.9605 6.892 3.8785 7.0685 3.7145C7.245 3.5505 7.3335 3.3515 7.3335 3.118C7.3335 2.8855 7.245 2.6855 7.0685 2.52C6.8925 2.354 6.6795 2.2715 6.431 2.2715C6.183 2.2715 5.969 2.354 5.791 2.52C5.6145 2.6855 5.5245 2.8855 5.5245 3.118C5.5245 3.351 5.614 3.5505 5.791 3.7145C5.969 3.8785 6.183 3.9605 6.431 3.9605Z" fill="#030104"/>
                                     </svg>
                                     
-                            </div>
+                                <input type="text" class="form-control" id="inputCVV" placeholder="XXX">
+                              </div>   
+                              
                         </div>
-
                     </div>
-                </div>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12 my-5 d-flex justify-content-center ">

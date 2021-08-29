@@ -135,7 +135,11 @@ async function add(e) {
                     dataJson.push(value);
                     localStorage.setItem('dataJson',JSON.stringify(dataJson))
                     console.log(value)
-                    alert('This item add in your bucket.');
+                    Swal.fire(
+                        'Add item!',
+                        'This item added in your cart!',
+                        'success'
+                      )
                 }else{
                     localStorage.setItem('dataJson',JSON.stringify(arr))
                 }
@@ -220,7 +224,7 @@ item.forEach((element) => {
             if (index !== Number.parseInt(id)) {
                 return item;
             }
-            alert('This item is removing.');
+            alert("Delete Sucess.")
         });
 
         localStorage.setItem('dataJson', JSON.stringify(newData));
