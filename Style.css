@@ -42,6 +42,10 @@
   color: #FFD700;
 }
 
+.check_Out {
+  display: none;
+}
+
 @media screen and (max-width: 1024px) {
   .show_item {
     width: 100%;
@@ -51,8 +55,7 @@
     display: none;
   }
   .check_Out {
-    visibility: visible;
-    border: 1px solid #000;
+    display: block;
   }
 }
 
@@ -60,10 +63,6 @@
   .show_item {
     width: 100%;
     height: 700px;
-  }
-  .check_Out {
-    visibility: visible;
-    border: 1px solid #000;
   }
 }
 
