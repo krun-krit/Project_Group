@@ -46,6 +46,8 @@
   display: none;
 }
 
+
+
 @media screen and (max-width: 1024px) {
   .show_item {
     width: 100%;
@@ -57,7 +59,10 @@
 
   .check_Out{
     display: block;
-    
+  }
+
+  .payment_res{
+    display: block;
   }
 }
 

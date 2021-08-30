@@ -46,6 +46,35 @@
   display: none;
 }
 
+.paypal{
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #2F4F4F;
+  padding: 10px 10px;
+  margin-bottom: 1%;
+}
+
+.card{
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #2F4F4F;
+  padding: 10px 10px;
+  margin-bottom: 1%;
+}
+
+.cash{
+  display: inline-block;
+  text-align: center;
+  border: 2px solid #2F4F4F;
+  padding: 10px 10px;
+  margin-bottom: 1%;
+}
+
+.payment_res{
+  display: none;
+}
+
+
 @media screen and (max-width: 1024px) {
   .show_item {
     width: 100%;
@@ -56,6 +85,14 @@
   }
   .check_Out {
     display: block;
+  }
+
+  .payment_main{
+    display: none;
+  }
+
+  .payment_res{
+    display: flex;
   }
 }
 

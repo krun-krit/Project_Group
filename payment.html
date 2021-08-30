@@ -30,12 +30,12 @@
     <nav class="navbar navbar-light bg-dark justify-content-center">
         <img src="Picture/Logo.png" alt="Logo" width="100" height="100%" class="bg-dark"><h4 class="text-white" >Checkout</h4>
     </nav>
-    <div class="row col-12 ">
+    <div class="payment_main row col-12 ">
         <div class="d-flex justify-content-center my-5 col-lg-8 col-sm-12">
             <div class="col-lg-10 col-sm-10">
                 <div>
                     <label style="font-size:2rem; font-family: 'Franklin Gothic Medium'; margin-top: 2rem; margin-bottom: 2rem;">
-                        Pyament
+                        Pyament Method
                     </label>                              
                 </div>
                 <div id="payment_method">
@@ -115,7 +115,7 @@
                     </div>
             </div>
         </div>
-        <div class="col-lg-4 col-sm-12 my-5 d-flex justify-content-center ">
+        <div class="payment_main col-lg-4 col-sm-12 my-5 d-flex justify-content-center ">
             <div class="col-lg-6 col-sm-8">
                 <div class="card text-start" style="width: 100%; background-color:#F5F5F5;">
                     <div class="card-body">
@@ -133,8 +133,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
         <div class="d-flex justify-content-center">
             <div  style="text-align: center; margin: 2%;">
                 <a href ="Bag.html" style="cursor: pointer;"  class="backToIndex">back</a>
@@ -143,7 +141,67 @@
                 <a style="cursor: pointer;" class="paySuccess" onclick="show_alert()">Confirm Payment</a>
             </div>
         </div>
+    </div>
 
+
+
+        <div class="payment_res row col-md-12 justify-content-center">
+            <div class="row col-10 justify-content-center">
+                <label class="row col-10 justify-content-center" style="font-size:1.5rem; font-family: 'Franklin Gothic Medium'; margin-top: 2rem; margin-bottom: 2rem;">Payment Method</label>
+                <div class="paypal row col-md-7 justify-content-center">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            Paypal
+                        </label>
+                        <input class="input_radio form-check-input " type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                    </div>
+                </div>
+                <div class="card row col-md-7 justify-content-center">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            Credit Card
+                        </label>
+                        <input class="input_radio form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    </div>
+                </div>
+                <div class="cash row col-md-7 justify-content-center">
+                    <div class="form-check">
+                        <label class="form-check-label" for="flexRadioDefault3">
+                            Cash on Delivery
+                        </label>
+                        <input class="input_radio form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                    </div>
+                </div> 
+                <label class="row col-10 justify-content-center" style="font-size:1.5rem; font-family: 'Franklin Gothic Medium'; margin-top: 2rem; margin-bottom: 2rem;">Shipping Address</label>
+                <div class="shipping row col-md-8 justify-content-center">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Pimary Address</button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="#">Other Address</a></li>
+                    </ul>
+                </div>
+                    <label for="inputCode" class="form-label row col-10 justify-content-center" style="font-size:1.5rem; font-family: 'Franklin Gothic Medium'; margin-top: 2rem; margin-bottom: 2rem;">Coupon</label>
+                        <div class="d-flex justify-content-center">
+                            <div>
+                                <input type="text" class="form-control" id="inputCode">
+                            </div>
+                                <svg width="40" height="35" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="50" height="50" fill="black"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5892 15.0842C23.6538 13.8608 25.5779 13.8608 26.6416 15.0842L27.0949 15.5998C27.3117 15.8532 27.653 15.9581 27.9773 15.8882L28.6563 15.7221C30.248 15.3464 31.8049 16.4649 31.9338 18.0641L31.9898 18.7545C32.0156 19.0778 32.2262 19.3662 32.5346 19.4886L33.1797 19.7507C34.6914 20.3712 35.286 22.1714 34.431 23.5434L34.0676 24.1289C33.8925 24.4085 33.8925 24.7581 34.0676 25.0377L34.431 25.6232C35.286 26.9952 34.6914 28.7954 33.1797 29.4159L32.5346 29.678C32.2262 29.8004 32.0156 30.0887 31.9898 30.4121L31.9338 31.1024C31.8049 32.7017 30.248 33.8202 28.6563 33.4445L27.9773 33.2784C27.653 33.2085 27.3117 33.3134 27.0949 33.5668L26.6416 34.0824C25.5779 35.3058 23.6538 35.3058 22.5892 34.0824L22.136 33.5668C21.9191 33.3134 21.5788 33.2085 21.2535 33.2784L20.5745 33.4445C18.9829 33.8202 17.4268 32.7017 17.297 31.1024L17.241 30.4121C17.2153 30.0887 17.0046 29.8004 16.6963 29.678L16.052 29.4159C14.5394 28.7954 13.9449 26.9952 14.7998 25.6232L15.1633 25.0377C15.3383 24.7581 15.3383 24.4085 15.1633 24.1289L14.7998 23.5434C13.9449 22.1714 14.5394 20.3712 16.052 19.7507L16.6963 19.4886C17.0046 19.3662 17.2153 19.0778 17.241 18.7545L17.297 18.0641C17.4268 16.4649 18.9829 15.3464 20.5745 15.7221L21.2535 15.8882C21.5788 15.9581 21.9191 15.8532 22.136 15.5998L22.5892 15.0842ZM25.2908 16.2202C24.9362 15.8095 24.2946 15.8095 23.94 16.2202L23.4859 16.7358C22.8363 17.4874 21.8134 17.8107 20.8394 17.5835L20.1613 17.4262C19.6307 17.3039 19.1117 17.6709 19.0682 18.204L19.0131 18.8856C18.934 19.8731 18.3021 20.7295 17.377 21.1052L16.7327 21.3674C16.2288 21.5684 16.0306 22.1714 16.3159 22.6258L16.6794 23.2113C17.2019 24.059 17.2019 25.1076 16.6794 25.9553L16.3159 26.5408C16.0306 26.9952 16.2288 27.5982 16.7327 27.7992L17.377 28.0613C18.3021 28.4371 18.934 29.2935 19.0131 30.281L19.0682 30.9626C19.1117 31.4957 19.6307 31.8627 20.1613 31.7404L20.8394 31.5831C21.8134 31.3559 22.8363 31.6792 23.4859 32.4307L23.94 32.9463C24.2946 33.3571 24.9362 33.3571 25.2908 32.9463L25.7449 32.4307C26.3955 31.6792 27.4175 31.3559 28.3915 31.5831L29.0695 31.7404C29.6001 31.8627 30.1191 31.4957 30.1626 30.9626L30.2177 30.281C30.2968 29.2935 30.9287 28.4371 31.8538 28.0613L32.4981 27.7992C33.002 27.5982 33.2002 26.9952 32.9149 26.5408L32.5514 25.9553C32.0289 25.1076 32.0289 24.059 32.5514 23.2113L32.9149 22.6258C33.2002 22.1714 33.002 21.5684 32.4981 21.3674L31.8538 21.1052C30.9287 20.7295 30.2968 19.8731 30.2177 18.8856L30.1626 18.204C30.1191 17.6709 29.6001 17.3039 29.0695 17.4262L28.3915 17.5835C27.4175 17.8107 26.3955 17.4874 25.7449 16.7358L25.2908 16.2202ZM23.4663 21.3412C23.8138 21.682 23.8138 22.2413 23.4663 22.5821L22.5776 23.456C22.2302 23.7968 21.6685 23.7968 21.321 23.456C20.9736 23.1152 20.9736 22.5559 21.321 22.2151L22.2097 21.3412C22.5572 21.0004 23.1189 21.0004 23.4663 21.3412ZM27.9098 21.3412C28.2573 21.682 28.2573 22.2413 27.9098 22.5821L22.5776 27.8254C22.2302 28.1662 21.6685 28.1662 21.321 27.8254C20.9736 27.4846 20.9736 26.9253 21.321 26.5845L26.6532 21.3412C27.0007 21.0004 27.5623 21.0004 27.9098 21.3412ZM27.9098 25.7106C28.2573 26.0514 28.2573 26.6107 27.9098 26.9515L27.0211 27.8254C26.6736 28.1662 26.112 28.1662 25.7645 27.8254C25.417 27.4846 25.417 26.9253 25.7645 26.5845L26.6532 25.7106C27.0007 25.3698 27.5623 25.3698 27.9098 25.7106Z" fill="white"/>
+                                </svg>                                    
+                            </div>
+                </div>
+                <div class="d-flex justify-content-center" style="padding: 5%;">
+                    <div  style="text-align: center; margin: 2%;">
+                        <a href ="Bag.html" style="cursor: pointer;"  class="backToIndex">back</a>
+                    </div>
+                    <div style="text-align: center; margin: 2%;">
+                        <a style="cursor: pointer;" class="paySuccess" onclick="show_alert()">Confirm Payment</a>
+                    </div>
+                </div>
+        </div>
+
+
+        </div>
 
 
     <div class="footer-basic col-12">
